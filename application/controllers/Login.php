@@ -27,7 +27,8 @@ class Login extends CI_Controller{
         // jika datanya ada akan di arahkan ke halaman admin
         if(count($login) > 0 ){
            
-           $this->load->view('admin/admin');
+         redirect('login/admin');
+
         }else{
             $this->session->set_flashdata('login','Periksa Username dan Password Anda');
             redirect('login/index');
@@ -36,7 +37,38 @@ class Login extends CI_Controller{
     }
 
     public function admin(){
+        $this->load->view('template/header');
         $this->load->view('admin/admin');
+        $this->load->view('template/footer');
+    }
+
+    public function buku(){
+
+        $this->load->view('template/header');
+        $this->load->view('admin/buku');
+        $this->load->view('template/footer');
+    }
+
+    public function anggota(){
+
+        $this->load->view('template/header');
+        $this->load->view('admin/anggota');
+        $this->load->view('template/footer');
+
+    }
+
+    public function peminjaman(){
+
+        $this->load->view('template/header');
+        $this->load->view('admin/peminjaman');
+        $this->load->view('template/footer');
+    }
+
+    public function setting(){
+
+        $this->load->view('template/header');
+        $this->load->view('admin/setting');
+        $this->load->view('template/footer');
     }
 
 }

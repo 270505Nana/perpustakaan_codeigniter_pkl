@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Untuk tampilan, pemanggilan file css -->
     <link rel="stylesheet" type="text/css" href="<?= base_url()?>assets/css/sb-admin-2.min.css">
-    <title></title>
+    <title>PERPUSTAKAAN</title>
 </head>
 <body>
 
