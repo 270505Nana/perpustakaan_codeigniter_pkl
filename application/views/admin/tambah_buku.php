@@ -74,8 +74,9 @@
                 </a>
             
             </li>
-
-            <!-- Sidebar Toggler (Sidebar) -->
+<!-- ______________________________________________________________________________________________________________________________________________________________________________________________-->
+           
+        <!-- Sidebar Toggler (Sidebar) -->
             <div class="text-center d-none d-md-inline">
                 <button class="rounded-circle border-0" id="sidebarToggle"></button>
             </div>
@@ -134,33 +135,39 @@
 
                 <!-- CONTENT -->
                 <div class="container-fluid">
-                    <a href="<?= base_url('login/tambah_buku')?>" class="btn btn-primary">Tambah Buku</a>
+                    <h2 class="text-primary">FORM TAMBAH BUKU</h2>
+                   <form action="">
+
+                       <div class="form-group">
+                           <label for="">Masukkan Judul Buku</label>
+                           <input type="text" name="judul" class="form-control">
+                       </div>
+
+                       <div class="form-group">
+                           <label for="">Masukkan Pengarang Buku</label>
+                           <input type="text" name="pengarang" class="form-control">
+                       </div>
+
+                       <div class="form-group">
+                           <label for="">Masukkan ISBN Buku</label>
+                           <input type="text" name="isbn" class="form-control">
+                       </div>
+
+                       <div class="form-group">
+                           <label for="">Masukkan Penerbit Buku</label>
+                           <input type="text" name="penerbit" class="form-control"> 
+                       </div>
+
+                       <div class="form-group">
+                           <label for="">Masukkan Foto Buku</label>
+                           <input type="file" name="foto" class="form-control">
+                       </div>
+                       <input type="submit" name="simpan" value="SIMPAN DATA" class="btn btn-primary mb-5">
+                       <a href="<?= base_url('login/buku')?>" ><div class="btn btn-success mb-5">BATAL</div></a>
+
+                   </form>
                     
-                    <table class="table table-border my-5">
-                        <tr>
-                            <th> JUDUL </th>
-                            <th> PENGARANG </th>
-                            <th> ISBN </th>
-                            <th> PENERBIT </th>
-                            <th> AKSI </th>
-                        </tr>
-                        <tr>
-                            <?php foreach ($buku_nana as $buku): ?>
-                                <td><?= $buku['judul']?></td>
-                                <td><?= $buku['pengarang']?></td>
-                                <td><?= $buku['isbn']?></td>
-                                <td><?= $buku['penerbit']?></td>
-                                <td>
-                                <a href="" ><div class="btn btn-success btn-sm"><i class=" fas fa-search-plus"></i></div></a>
-                                <a href="" ><div class="btn btn-primary btn-sm"><i class=" fa fa-edit"></i></div></a>
-                                <a href="" ><div class="btn btn-danger btn-sm"><i class=" fa fa-trash"></i></div></a>
-                                </td>
-                            <?php endforeach; ?>
-
-                        </tr>
-
-                       
-                    </table>
+                    
                 </div>
             </div>
         </div>

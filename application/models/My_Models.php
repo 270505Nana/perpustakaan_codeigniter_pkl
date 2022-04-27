@@ -10,6 +10,11 @@ class My_Models extends CI_Model{
     ))->result_array();
 
     }
+
+    public function Ambil_Buku(){
+
+        return $this->db->get('buku')->result_array();
+    }
 }
 
 ?>

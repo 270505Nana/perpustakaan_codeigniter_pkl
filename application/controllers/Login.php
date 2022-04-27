@@ -44,8 +44,9 @@ class Login extends CI_Controller{
 
     public function buku(){
 
+        $data_nana['buku_nana'] = $this->My_Models->Ambil_Buku();
         $this->load->view('template/header');
-        $this->load->view('admin/buku');
+        $this->load->view('admin/buku', $data_nana);
         $this->load->view('template/footer');
     }
 
@@ -68,6 +69,13 @@ class Login extends CI_Controller{
 
         $this->load->view('template/header');
         $this->load->view('admin/setting');
+        $this->load->view('template/footer');
+    }
+
+    public function tambah_buku(){
+
+        $this->load->view('template/header');
+        $this->load->view('admin/tambah_buku');
         $this->load->view('template/footer');
     }
 
