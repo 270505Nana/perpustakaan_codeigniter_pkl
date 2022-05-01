@@ -47,6 +47,15 @@ class My_Models extends CI_Model{
         $this->db->where('id_buku',$this->input->post('id'));
         $this->db->update('buku',$data);
     }
+
+    public function lihat_data_nana($id){
+
+        return $this->db->get_where('buku', array(
+            'id_buku' => $id
+        ))->row_array();
+        // Karena memanggil datanyya sedikit jadi pakai row
+        // Kalau banyak pakai result_array();
+    }
 }
 
 ?>

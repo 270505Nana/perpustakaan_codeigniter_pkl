@@ -121,7 +121,12 @@ class Login extends CI_Controller{
     }
 
     public function lihatData($id){
-        
+
+        $data['buku'] = $this->My_Models->lihat_data_nana($id);
+    
+        $this->load->view('template/header');
+        $this->load->view('admin/lihat_buku', $data);
+        $this->load->view('template/footer');
     }
 
    
