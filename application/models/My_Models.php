@@ -29,6 +29,24 @@ class My_Models extends CI_Model{
         $this->db->insert("buku", $data);
         // Pakai query builder
     }
+
+    public function show_buku_nana($id){
+        return $this->db->get_where('buku', array(
+            "id_buku" => $id
+        ))->row_array();
+    }
+
+    public function do_edit(){
+        $data = [
+            "judul"     => $this->input->post("judul"),
+            "pengarang" => $this->input->post("pengarang"),
+            "isbn"      => $this->input->post("isbn"),
+            "penerbit"  => $this->input->post("penerbit"),
+        ];
+
+        $this->db->where('id_buku',$this->input->post('id'));
+        $this->db->update('buku',$data);
+    }
 }
 
 ?>

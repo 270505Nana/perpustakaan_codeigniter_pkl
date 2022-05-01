@@ -7,7 +7,7 @@
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="<?= base_url('login/admin')?>">
                 <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fas fa-book"></i>
                 </div>
@@ -167,8 +167,13 @@
                                     <td><?= $buku['isbn']?></td>
                                     <td><?= $buku['penerbit']?></td>
                                     <td>
-                                        <a href="" ><div class="btn btn-success btn-sm"><i class=" fas fa-search-plus"></i></div></a>
-                                        <a href="" ><div class="btn btn-primary btn-sm"><i class=" fa fa-edit"></i></div></a>
+                                        <a href="<?= base_url()?>login/lihatData/<?= $buku['id_buku'] ?>" ><div class="btn btn-success btn-sm"><i class=" fas fa-search-plus"></i></div></a>
+                                        
+                                        <a href="<?= base_url()?>login/edit/<?= $buku['id_buku'] ?>" >
+                                            <div class="btn btn-primary btn-sm"><i class=" fa fa-edit"></i></div>
+                                            <!-- id_buku : biar dia itu sesuai id gitu, jadi kalau kita klik edit di buku ke 2 maka yang muncul ya detail buku ke 2 -->
+                                        </a>
+
                                         <a href="" ><div class="btn btn-danger btn-sm"><i class=" fa fa-trash"></i></div></a>
                                     </td>
                             

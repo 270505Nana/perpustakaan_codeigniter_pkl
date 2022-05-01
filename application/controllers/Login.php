@@ -103,6 +103,27 @@ class Login extends CI_Controller{
     
     }
 
+    public function edit($id){
 
+        // Pertama ambil data, sesuai dengan id yang kita klik
+        $data['buku'] = $this->My_Models->show_buku_nana($id);
+
+        $this->load->view('template/header');
+        $this->load->view('admin/edit_buku', $data);
+        $this->load->view('template/footer');
+    }
+
+    public function do_edit(){
+        
+        $this->My_Models->do_edit();
+        $this->session->set_flashdata('tambah','Data Berhasil di Tambah');
+        redirect('login/buku');
+    }
+
+    public function lihatData($id){
+        
+    }
+
+   
 }
 ?>

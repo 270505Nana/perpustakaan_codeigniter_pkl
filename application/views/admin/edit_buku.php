@@ -74,8 +74,9 @@
                 </a>
             
             </li>
-
-            <!-- Sidebar Toggler (Sidebar) -->
+<!-- ______________________________________________________________________________________________________________________________________________________________________________________________-->
+           
+        <!-- Sidebar Toggler (Sidebar) -->
             <div class="text-center d-none d-md-inline">
                 <button class="rounded-circle border-0" id="sidebarToggle"></button>
             </div>
@@ -131,25 +132,43 @@
 
                 </nav>
                 <!-- End of Topbar -->
-
-                <!-- Begin Page Content -->
+<!-- ____________________________________________________________________________________________________________________________________________________________________________________________ -->
+                
+                <!-- CONTENT -->
                 <div class="container-fluid">
+                    <h2 class="text-primary">FORM TAMBAH BUKU</h2>
 
-                    <!-- Page Heading -->
-                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">HALLO ADMIN !</h1>
-                        <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
-                                class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
-                    </div>
+                   <form method="post" action="<?php echo base_url(). 'login/do_edit'?>">
+
+                       <div class="form-group">
+                           <label for="">Masukkan Judul Buku</label>
+                           <input type="hidden" name="id" class="form-control" value="<?= $buku['id_buku']?>">
+                           <input type="text" name="judul" class="form-control" value="<?= $buku['judul']?>">
+                           <!-- Value untuk memanggil datanya. -->
+                       </div>
+
+                       <div class="form-group">
+                           <label for="">Masukkan Pengarang Buku</label>
+                           <input type="text" name="pengarang" class="form-control" value="<?= $buku['pengarang']?>">
+                       </div>
+
+                       <div class="form-group">
+                           <label for="">Masukkan ISBN Buku</label>
+                           <input type="text" name="isbn" class="form-control" value="<?= $buku['isbn']?>">
+                       </div>
+
+                       <div class="form-group">
+                           <label for="">Masukkan Penerbit Buku</label>
+                           <input type="text" name="penerbit" class="form-control" value="<?= $buku['penerbit']?>"> 
+                       </div>
+
+                       <input type="submit" name="simpan" value="UBAH DATA" class="btn btn-primary mb-5">
+                       <a href="<?= base_url('login/buku')?>" ><div class="btn btn-success mb-5">BATAL</div></a>
+
+                   </form>
+                    
                     
                 </div>
-                <!-- /.container-fluid -->
-
             </div>
-            <!-- End of Main Content -->
-
         </div>
-        <!-- End of Content Wrapper -->
-
     </div>
-    <!-- End of Page Wrapper -->
