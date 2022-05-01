@@ -15,6 +15,20 @@ class My_Models extends CI_Model{
 
         return $this->db->get('buku')->result_array();
     }
+
+    public function do_tambah(){
+
+        $data = [
+            "judul"     => $this->input->post("judul"),
+            "pengarang" => $this->input->post("pengarang"),
+            "isbn"      => $this->input->post("isbn"),
+            "penerbit"  => $this->input->post("penerbit"),
+            // "foto"      => $this->upload->data("file_name")
+        ];
+
+        $this->db->insert("buku", $data);
+        // Pakai query builder
+    }
 }
 
 ?>

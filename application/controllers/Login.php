@@ -79,5 +79,30 @@ class Login extends CI_Controller{
         $this->load->view('template/footer');
     }
 
+    public function do_tambah(){
+       
+       
+        $this->My_Models->do_tambah();
+        $this->session->set_flashdata('tambah','Data Berhasil di Tambah');
+        redirect('login/buku');
+
+        // $foto       = $_FILES['foto'] ['name']   ;
+        // // foto : diambil dari name form ketika tambah foto
+        // if($foto=''){
+        //     echo "Tidak ada Gambar";
+        // }else{
+        //     $config['allowed types'] = 'jpg|img|png|gif';
+        //     $config['upload_path'] = "./assets/foto";
+        //     $this->load->library('upload', $config);
+        //     if(!$this->upload->do_upload('foto')){
+        //         echo "gagal";
+        //     }else{
+        //    $this->My_Models->do_tambah();
+        //     }
+        // }
+    
+    }
+
+
 }
 ?>

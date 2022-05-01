@@ -9,7 +9,7 @@
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
                 <div class="sidebar-brand-icon rotate-n-15">
-                    <i class="fas fa-laugh-wink"></i>
+                    <i class="fas fa-book"></i>
                 </div>
                 <div class="sidebar-brand-text mx-3">ADMIN <sup>perpustakaan</sup></div>
             </a>
@@ -132,11 +132,13 @@
 
                 </nav>
                 <!-- End of Topbar -->
-
+<!-- ____________________________________________________________________________________________________________________________________________________________________________________________ -->
+                
                 <!-- CONTENT -->
                 <div class="container-fluid">
                     <h2 class="text-primary">FORM TAMBAH BUKU</h2>
-                   <form action="">
+
+                   <form method="post" action="<?php echo base_url(). 'login/do_tambah'?>">
 
                        <div class="form-group">
                            <label for="">Masukkan Judul Buku</label>
@@ -158,10 +160,10 @@
                            <input type="text" name="penerbit" class="form-control"> 
                        </div>
 
-                       <div class="form-group">
+                       <!-- <div class="form-group">
                            <label for="">Masukkan Foto Buku</label>
                            <input type="file" name="foto" class="form-control">
-                       </div>
+                       </div> -->
                        <input type="submit" name="simpan" value="SIMPAN DATA" class="btn btn-primary mb-5">
                        <a href="<?= base_url('login/buku')?>" ><div class="btn btn-success mb-5">BATAL</div></a>
 

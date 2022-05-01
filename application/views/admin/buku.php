@@ -9,7 +9,7 @@
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
                 <div class="sidebar-brand-icon rotate-n-15">
-                    <i class="fas fa-laugh-wink"></i>
+                    <i class="fas fa-book"></i>
                 </div>
                 <div class="sidebar-brand-text mx-3">ADMIN <sup>perpustakaan</sup></div>
             </a>
@@ -131,10 +131,25 @@
 
                 </nav>
                 <!-- End of Topbar -->
-
+<!-- _______________________________________________________________________________________________________________________________________________________________________________ -->
+                
                 <!-- CONTENT -->
                 <div class="container-fluid">
+
+                <?php if($msg_nana = $this->session->flashdata('tambah')):?>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="alert alert-dismissible alert-success">
+                                <?= $msg_nana; ?>
+                            </div>
+                        </div>
+                    </div>
+                <?php endif; ?>
+                                       
+                   <h2>DATA BUKU PERPUSTAKAAN</h2>
                     <a href="<?= base_url('login/tambah_buku')?>" class="btn btn-primary">Tambah Buku</a>
+                   
                     
                     <table class="table table-border my-5">
                         <tr>
@@ -144,21 +159,22 @@
                             <th> PENERBIT </th>
                             <th> AKSI </th>
                         </tr>
-                        <tr>
-                            <?php foreach ($buku_nana as $buku): ?>
-                                <td><?= $buku['judul']?></td>
-                                <td><?= $buku['pengarang']?></td>
-                                <td><?= $buku['isbn']?></td>
-                                <td><?= $buku['penerbit']?></td>
-                                <td>
-                                <a href="" ><div class="btn btn-success btn-sm"><i class=" fas fa-search-plus"></i></div></a>
-                                <a href="" ><div class="btn btn-primary btn-sm"><i class=" fa fa-edit"></i></div></a>
-                                <a href="" ><div class="btn btn-danger btn-sm"><i class=" fa fa-trash"></i></div></a>
-                                </td>
-                            <?php endforeach; ?>
+                        <?php foreach ($buku_nana as $buku): ?>
+                            <tr>
+                                
+                                    <td><?= $buku['judul']?></td>
+                                    <td><?= $buku['pengarang']?></td>
+                                    <td><?= $buku['isbn']?></td>
+                                    <td><?= $buku['penerbit']?></td>
+                                    <td>
+                                        <a href="" ><div class="btn btn-success btn-sm"><i class=" fas fa-search-plus"></i></div></a>
+                                        <a href="" ><div class="btn btn-primary btn-sm"><i class=" fa fa-edit"></i></div></a>
+                                        <a href="" ><div class="btn btn-danger btn-sm"><i class=" fa fa-trash"></i></div></a>
+                                    </td>
+                            
 
-                        </tr>
-
+                            </tr>
+                         <?php endforeach; ?>
                        
                     </table>
                 </div>
