@@ -174,7 +174,7 @@
                                             <!-- id_buku : biar dia itu sesuai id gitu, jadi kalau kita klik edit di buku ke 2 maka yang muncul ya detail buku ke 2 -->
                                         </a>
 
-                                        <a href="" ><div class="btn btn-danger btn-sm"><i class=" fa fa-trash"></i></div></a>
+                                        <a onclick="return confirm('Hapus Data?')"href="<?= base_url()?>login/hapus_buku/<?= $buku['id_buku'] ?>" ><div class="btn btn-danger btn-sm"><i class=" fa fa-trash"></i></div></a>
                                     </td>
                             
 

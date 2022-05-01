@@ -129,6 +129,16 @@ class Login extends CI_Controller{
         $this->load->view('template/footer');
     }
 
+    public function hapus_buku($id){
+        // Menerima parameter id
+
+        $this->My_Models->do_hapus_nana($id);
+        // Lalu kirimkan parameter yang kita dapat
+        $this->session->set_flashdata('tambah', 'Data Berhasil Dihapus');
+        redirect('login/buku');
+
+    }
+
    
 }
 ?>

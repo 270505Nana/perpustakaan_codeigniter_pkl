@@ -56,6 +56,12 @@ class My_Models extends CI_Model{
         // Karena memanggil datanyya sedikit jadi pakai row
         // Kalau banyak pakai result_array();
     }
+
+    public function do_hapus_nana($id){
+          
+        $this->db->where('id_buku', $id);
+        return $this->db->delete('buku');
+    }
 }
 
 ?>
