@@ -91,6 +91,20 @@ class My_Models extends CI_Model{
         $this->db->where('id_anggota', $id);
         return $this->db->get('anggota')->row_array();
     }
+
+    public function do_edit_nana(){
+
+        $data = [
+            "nama"    => $this->input->post('nama'),
+            "kelas"   => $this->input->post('kelas'),
+            "alamat"  => $this->input->post('alamat'),
+            "email"   => $this->input->post('email')
+        ];
+
+        $this->db->where('id_anggota',$this->input->post('id'));
+        $this->db->update('anggota',$data);
+         
+    }
 }
 
 ?>

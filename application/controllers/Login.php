@@ -117,7 +117,7 @@ class Login extends CI_Controller{
     public function do_edit(){
         
         $this->My_Models->do_edit();
-        $this->session->set_flashdata('tambah','Data Berhasil di Tambah');
+        $this->session->set_flashdata('tambah','Data Berhasil di Ubah');
         redirect('login/buku');
     }
 
@@ -163,6 +163,25 @@ class Login extends CI_Controller{
         $this->load->view('template/header');
         $this->load->view('admin/lihat_anggota',$data);
         $this->load->view('template/footer');
+    }
+
+    public function edit_anggota($id){
+
+          // Pertama ambil data, sesuai dengan id yang kita klik
+          $data['anggota'] = $this->My_Models->lihat_anggota($id);
+
+          $this->load->view('template/header');
+          $this->load->view('admin/edit_anggota', $data);
+          $this->load->view('template/footer');
+
+    }
+
+    public function do_edit_anggota(){
+
+        $this->My_Models->do_edit_nana();
+        $this->session->set_flashdata('tambah','Data Berhasil di Ubah');
+        redirect('login/anggota');
+
     }
 
    

@@ -74,8 +74,9 @@
                 </a>
             
             </li>
-
-            <!-- Sidebar Toggler (Sidebar) -->
+<!-- ______________________________________________________________________________________________________________________________________________________________________________________________-->
+           
+        <!-- Sidebar Toggler (Sidebar) -->
             <div class="text-center d-none d-md-inline">
                 <button class="rounded-circle border-0" id="sidebarToggle"></button>
             </div>
@@ -131,57 +132,52 @@
 
                 </nav>
                 <!-- End of Topbar -->
-<!-- _______________________________________________________________________________________________________________________________________________________________________________ -->
+<!-- ____________________________________________________________________________________________________________________________________________________________________________________________ -->
                 
                 <!-- CONTENT -->
                 <div class="container-fluid">
+                    <h2 class="text-primary">FORM TAMBAH BUKU</h2>
 
-                <?php if($msg_nana = $this->session->flashdata('tambah')):?>
+                   <form method="post" action="<?php echo base_url(). 'login/do_edit_anggota'?>">
+                   <input type="hidden" name="id" value="<?= $anggota['id_anggota']?>">
 
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="alert alert-dismissible alert-success">
-                                <?= $msg_nana; ?>
-                            </div>
-                        </div>
-                    </div>
-                <?php endif; ?>
-                                       
-                   <h2>DATA ANGGOTA PERPUSTAKAAN</h2>
-                    <a href="<?= base_url('login/tambah_anggota')?>" class="btn btn-primary">Tambah Anggota</a>
-                   
+                       <div class="form-group">
+                           <label for="">Masukkan Nama Anggota</label>
+                           <input type="text" name="nama" class="form-control" value="<?= $anggota['nama']?>">
+                       </div>
+
+                       <div class="form-group">
+                           <label for="">Masukkan Kelas Anggota</label>
+                           <select name="kelas" class="form-control" >
+                               <option value=""><?= $anggota['kelas']?></option>
+                                <option>10</option>
+                                <option>11</option>
+                                <option>12</option>
+                           </select>
+                       </div>
+
+                       <div class="form-group">
+                           <label for="">Masukkan Alamat Anggota</label>
+                           <textarea name="alamat" rows="5" class="form-control">
+                               <?= $anggota['alamat']?>
+                           </textarea>
+                       </div>
+
+                       <div class="form-group">
+                           <label for="">Masukkan Email Anggota</label>
+                           <input type="text" name="email" class="form-control" value="<?= $anggota['email']?>"> 
+                       </div>
+
+                       <!-- <div class="form-group">
+                           <label for="">Masukkan Foto Buku</label>
+                           <input type="file" name="foto" class="form-control">
+                       </div> -->
+                       <input type="submit" name="simpan" value="SIMPAN DATA" class="btn btn-primary mb-5">
+                       <a href="<?= base_url('login/anggota')?>" ><div class="btn btn-success mb-5">BATAL</div></a>
+
+                   </form>
                     
-                    <table class="table table-border my-5">
-                        <tr>
-                            <th> NAMA </th>
-                            <th> KELAS </th>
-                            <th> ALAMAT </th>
-                            <th> EMAIL </th>
-                            <th> AKSI </th>
-                        </tr>
-                        <?php foreach ($anggota_nana as $anggota): ?>
-                            <tr>
-                                
-                                    <td><?= $anggota['nama']?></td>
-                                    <td><?= $anggota['kelas']?></td>
-                                    <td><?= $anggota['alamat']?></td>
-                                    <td><?= $anggota ['email']?></td>
-                                    <td>
-                                        <a href="<?= base_url()?>login/lihat_anggota/<?= $anggota['id_anggota'] ?>" ><div class="btn btn-success btn-sm"><i class=" fas fa-search-plus"></i></div></a>
-                                        
-                                        <a href="<?= base_url()?>login/edit_anggota/<?= $anggota['id_anggota'] ?>" >
-                                            <div class="btn btn-primary btn-sm"><i class=" fa fa-edit"></i></div>
-                                            <!-- id_buku : biar dia itu sesuai id gitu, jadi kalau kita klik edit di buku ke 2 maka yang muncul ya detail buku ke 2 -->
-                                        </a>
-
-                                        <a onclick="return confirm('Hapus Data?')"href="<?= base_url()?>login/hapus_buku/<?= $anggota['id_anggota'] ?>" ><div class="btn btn-danger btn-sm"><i class=" fa fa-trash"></i></div></a>
-                                    </td>
-                            
-
-                            </tr>
-                         <?php endforeach; ?>
-                       
-                    </table>
+                    
                 </div>
             </div>
         </div>
