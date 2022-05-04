@@ -105,6 +105,12 @@ class My_Models extends CI_Model{
         $this->db->update('anggota',$data);
          
     }
+
+    public function delete_anggota_nana($id){
+
+        $this->db->where('id_anggota',$id);
+        $this->db->delete('anggota');
+    }
 }
 
 ?>

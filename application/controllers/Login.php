@@ -184,6 +184,13 @@ class Login extends CI_Controller{
 
     }
 
+    public function hapus_anggota($id){
+
+        $this->My_Models->delete_anggota_nana($id);
+        $this->session->set_flashdata('tambah','Data Berhasil di Hapus');
+        redirect('login/anggota');
+    }
+
    
 }
 ?>
