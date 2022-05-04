@@ -5,8 +5,7 @@
 
         <!-- Sidebar -->
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
-
-            <!-- Sidebar - Brand -->
+             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="<?= base_url('login/admin')?>">
                 <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fas fa-book"></i>
@@ -135,53 +134,19 @@
                 
                 <!-- CONTENT -->
                 <div class="container-fluid">
-
-                <?php if($msg_nana = $this->session->flashdata('tambah')):?>
-
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="alert alert-dismissible alert-success">
-                                <?= $msg_nana; ?>
-                            </div>
-                        </div>
-                    </div>
-                <?php endif; ?>
-                                       
-                   <h2>DATA ANGGOTA PERPUSTAKAAN</h2>
-                    <a href="<?= base_url('login/tambah_anggota')?>" class="btn btn-primary">Tambah Anggota</a>
                    
+                   <h2>DETAIL BUKU PERPUSTAKAAN</h2>
+                   <hr>
+                   <h5><b>Nama Anggota   </b> : <?= $anggota['nama']?></h5>
+                   <br>
+                   <h5><b>Kelas Anggota </b> : <?= $anggota['kelas']?></h5>
+                   <br>
+                   <h5><b>Alamat Anggota     </b> : <?= $anggota['alamat']?></h5>
+                   <br>
+                   <h5><b>Email Anggota </b> : <?= $anggota['email']?></h5>
+
+                   <a href="<?= base_url('login/anggota')?>" ><div class="btn btn-success mb-5 mt-3">KEMBALI</div></a>
                     
-                    <table class="table table-border my-5">
-                        <tr>
-                            <th> NAMA </th>
-                            <th> KELAS </th>
-                            <th> ALAMAT </th>
-                            <th> EMAIL </th>
-                            <th> AKSI </th>
-                        </tr>
-                        <?php foreach ($anggota_nana as $anggota): ?>
-                            <tr>
-                                
-                                    <td><?= $anggota['nama']?></td>
-                                    <td><?= $anggota['kelas']?></td>
-                                    <td><?= $anggota['alamat']?></td>
-                                    <td><?= $anggota ['email']?></td>
-                                    <td>
-                                        <a href="<?= base_url()?>login/lihat_anggota/<?= $anggota['id_anggota'] ?>" ><div class="btn btn-success btn-sm"><i class=" fas fa-search-plus"></i></div></a>
-                                        
-                                        <a href="<?= base_url()?>login/edit/<?= $anggota['id_anggota'] ?>" >
-                                            <div class="btn btn-primary btn-sm"><i class=" fa fa-edit"></i></div>
-                                            <!-- id_buku : biar dia itu sesuai id gitu, jadi kalau kita klik edit di buku ke 2 maka yang muncul ya detail buku ke 2 -->
-                                        </a>
-
-                                        <a onclick="return confirm('Hapus Data?')"href="<?= base_url()?>login/hapus_buku/<?= $anggota['id_anggota'] ?>" ><div class="btn btn-danger btn-sm"><i class=" fa fa-trash"></i></div></a>
-                                    </td>
-                            
-
-                            </tr>
-                         <?php endforeach; ?>
-                       
-                    </table>
                 </div>
             </div>
         </div>

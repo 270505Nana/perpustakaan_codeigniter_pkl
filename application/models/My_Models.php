@@ -84,6 +84,13 @@ class My_Models extends CI_Model{
         // 1. nama tabel
         // 2.data yang mau kita kirim(array)
     }
+
+    public function lihat_anggota($id){
+
+        // id_anggota = id yang kita kirim
+        $this->db->where('id_anggota', $id);
+        return $this->db->get('anggota')->row_array();
+    }
 }
 
 ?>

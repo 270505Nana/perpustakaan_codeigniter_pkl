@@ -157,6 +157,14 @@ class Login extends CI_Controller{
 
     }
 
+    public function lihat_anggota($id){
+
+        $data['anggota'] = $this->My_Models->lihat_anggota($id);
+        $this->load->view('template/header');
+        $this->load->view('admin/lihat_anggota',$data);
+        $this->load->view('template/footer');
+    }
+
    
 }
 ?>
