@@ -52,8 +52,9 @@ class Login extends CI_Controller{
 
     public function anggota(){
 
+        $data_nana['anggota_nana'] = $this->My_Models->Ambil_Anggota_Nana();
         $this->load->view('template/header');
-        $this->load->view('admin/anggota');
+        $this->load->view('admin/anggota', $data_nana);
         $this->load->view('template/footer');
 
     }
@@ -136,6 +137,23 @@ class Login extends CI_Controller{
         // Lalu kirimkan parameter yang kita dapat
         $this->session->set_flashdata('tambah', 'Data Berhasil Dihapus');
         redirect('login/buku');
+
+    }
+
+    public function tambah_anggota(){
+
+        $this->load->view('template/header');
+        $this->load->view('admin/tambah_anggota');
+        $this->load->view('template/footer');
+
+    }
+
+    public function do_tambah_anggota(){
+
+        $this->My_Models->do_tambah_anggota();
+        $this->session->set_flashdata('tambah','Data Berhasil di Tambah');
+        redirect('login/anggota');
+
 
     }
 

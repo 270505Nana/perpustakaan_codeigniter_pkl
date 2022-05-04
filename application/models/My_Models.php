@@ -62,6 +62,28 @@ class My_Models extends CI_Model{
         $this->db->where('id_buku', $id);
         return $this->db->delete('buku');
     }
+
+    public function Ambil_Anggota_Nana(){
+
+        return $this->db->get('anggota')->result_array();
+
+    }
+
+    public function do_tambah_anggota(){
+
+        // untuk menampung data
+        $data = [
+            "nama"    => $this->input->post('nama'),
+            "kelas"   => $this->input->post('kelas'),
+            "alamat"  => $this->input->post('alamat'),
+            "email"   => $this->input->post('email')
+        ];
+
+        $this->db->insert("anggota", $data);
+        // ada dua parameter yang 
+        // 1. nama tabel
+        // 2.data yang mau kita kirim(array)
+    }
 }
 
 ?>
