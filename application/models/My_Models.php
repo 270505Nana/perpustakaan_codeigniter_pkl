@@ -124,6 +124,16 @@ class My_Models extends CI_Model{
         $this->db->insert('peminjaman',$data);
 
     }
+
+    public function get_data_peminjaman(){
+
+        $this->db->select("*");
+        $this->db->from('peminjaman');
+        $this->db->join('anggota','anggota.id_anggota = peminjaman.id_anggota');
+        $this->db->join('buku','buku.id_buku = peminjaman.id_buku');
+        return $this->db->get()->result_array();
+
+    }
 }
 
 ?>

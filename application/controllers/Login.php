@@ -61,8 +61,10 @@ class Login extends CI_Controller{
 
     public function peminjaman(){
 
+        $data['peminjaman'] = $this->My_Models->get_data_peminjaman();
+
         $this->load->view('template/header');
-        $this->load->view('admin/peminjaman');
+        $this->load->view('admin/peminjaman',$data);
         $this->load->view('template/footer');
     }
 

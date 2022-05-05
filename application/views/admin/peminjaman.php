@@ -159,6 +159,27 @@
                             <th> TANGGAL KEMBALI </th>
                             <th> AKSI </th>
                         </tr>
+
+                        <?php foreach ($peminjaman as $pinjam):?>
+                            <tr>
+                                <td><?= $pinjam['nama'] ?></td>
+                                <!-- nama diambil dari table anggota -->
+                                <td><?= $pinjam['judul']?></td>
+                                <td><?= $pinjam['tanggal_pinjam']?></td>
+                                <td><?= $pinjam['tanggal_kembali']?></td>
+                                <td>
+                                    
+                                        <a href="<?= base_url()?>login/edit_anggota/<?= $pinjam['id_anggota'] ?>" >
+                                            <div class="btn btn-primary btn-sm"><i class=" fa fa-edit"></i></div>
+                                            <!-- id_buku : biar dia itu sesuai id gitu, jadi kalau kita klik edit di buku ke 2 maka yang muncul ya detail buku ke 2 -->
+                                        </a>
+
+                                        <a onclick="return confirm('Hapus Data?')"href="<?= base_url()?>login/hapus_anggota/<?= $pinjam['id_anggota'] ?>" ><div class="btn btn-danger btn-sm"><i class=" fa fa-trash"></i></div></a>
+                                    </td>
+                            
+
+                            </tr>
+                        <?php endforeach ?>
                        
                     </table>
                 </div>
