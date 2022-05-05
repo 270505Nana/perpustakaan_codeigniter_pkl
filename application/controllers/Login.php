@@ -191,6 +191,24 @@ class Login extends CI_Controller{
         redirect('login/anggota');
     }
 
+    public function tambah_peminjaman(){
+
+        $data_nana['anggota_nana'] = $this->My_Models->Ambil_Anggota_Nana();
+        $data_nana['buku_nana'] = $this->My_Models->Ambil_Buku();
+
+        $this->load->view('template/header');
+        $this->load->view('admin/tambah_peminjaman',$data_nana);
+        $this->load->view('template/footer');
+
+    }
+
+    public function do_tambah_peminjaman(){
+
+        $this->My_Models->tambah_peminjaman_nana();
+        $this->session->set_flashdata('tambah','Data Berhasil di Tambah');
+        redirect('login/peminjaman');
+    }
+
    
 }
 ?>

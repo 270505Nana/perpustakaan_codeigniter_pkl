@@ -74,8 +74,9 @@
                 </a>
             
             </li>
-
-            <!-- Sidebar Toggler (Sidebar) -->
+<!-- ______________________________________________________________________________________________________________________________________________________________________________________________-->
+           
+        <!-- Sidebar Toggler (Sidebar) -->
             <div class="text-center d-none d-md-inline">
                 <button class="rounded-circle border-0" id="sidebarToggle"></button>
             </div>
@@ -131,36 +132,55 @@
 
                 </nav>
                 <!-- End of Topbar -->
-<!-- _______________________________________________________________________________________________________________________________________________________________________________ -->
+<!-- ____________________________________________________________________________________________________________________________________________________________________________________________ -->
                 
                 <!-- CONTENT -->
                 <div class="container-fluid">
+                    <h2 class="text-primary">FORM TAMBAH BUKU</h2>
 
-                <?php if($msg_nana = $this->session->flashdata('tambah')):?>
+                   <form method="post" action="<?php echo base_url(). 'login/do_tambah_peminjaman'?>">
 
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="alert alert-dismissible alert-success">
-                                <?= $msg_nana; ?>
-                            </div>
-                        </div>
-                    </div>
-                <?php endif; ?>
-                                       
-                   <h2>DATA PEMINJAMAN BUKU PERPUSTAKAAN</h2>
-                    <a href="<?= base_url('login/tambah_peminjaman')?>" class="btn btn-primary">Tambah Peminjaman</a>
-                   
-                    
-                    <table class="table table-border my-5">
-                        <tr>
-                            <th> NAMA ANGGOTA </th>
-                            <th> JUDUL BUKU </th>
-                            <th> TANGGAL PINJAM </th>
-                            <th> TANGGAL KEMBALI </th>
-                            <th> AKSI </th>
-                        </tr>
+                       <div class="form-group">
+                           <label for="">Masukkan Nama Peminjam</label>
+                           <select name="anggota" class="form-control">
+
+                               <?php foreach ($anggota_nana as $anggota): ?>
+                                    <option value="<?= $anggota['id_anggota']?>"><?= $anggota['nama']?></option>
+                               <?php endforeach ?>
+
+                           </select>
+                       </div>
+
+                       <div class="form-group">
+                           <label for="">Masukkan Nama Buku</label>
+                           <select name="buku" class="form-control">
+
+                                <?php foreach ($buku_nana as $buku): ?>
+                                    <option value="<?= $buku['id_buku']?>"><?= $buku['judul']?></option>
+                                <?php endforeach ?>
+
+                           </select>
+                       </div>
+
+
+                       <div class="form-group">
+                           <label for="">Tanggal Pinjam</label>
+                           <input type="date" name="tanggal_masuk" class="form-control">
+                       </div>
                        
-                    </table>
+                       
+                       <div class="form-group">
+                           <label for="">Tanggal Kembali</label>
+                           <input type="date" name="tanggal" class="form-control">
+                       </div>
+
+
+                       <input type="submit" name="simpan" value="SIMPAN DATA" class="btn btn-primary mb-5">
+                       <a href="<?= base_url('login/peminjaman')?>" ><div class="btn btn-success mb-5">BATAL</div></a>
+
+                   </form>
+                    
+                    
                 </div>
             </div>
         </div>

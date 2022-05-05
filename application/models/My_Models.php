@@ -111,6 +111,19 @@ class My_Models extends CI_Model{
         $this->db->where('id_anggota',$id);
         $this->db->delete('anggota');
     }
+
+    public function tambah_peminjaman_nana(){
+
+        $data = [
+            'id_anggota'     => $this->input->post('anggota'),
+            'id_buku'        => $this->input->post('buku'),
+            'tanggal_pinjam' => $this->input->post('tanggal_masuk'),
+            'tanggal_kembali'=> $this->input->post('tanggal')
+        ];
+
+        $this->db->insert('peminjaman',$data);
+
+    }
 }
 
 ?>
