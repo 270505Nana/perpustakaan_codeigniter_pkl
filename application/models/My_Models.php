@@ -133,7 +133,25 @@ class My_Models extends CI_Model{
         $this->db->join('buku','buku.id_buku = peminjaman.id_buku');
         return $this->db->get()->result_array();
 
+    
     }
+    public function get_id_peminjaman($id){
+
+
+        $this->db->select("*");
+        $this->db->from('peminjaman');
+        $this->db->join('anggota','anggota.id_anggota = peminjaman.id_anggota');
+        $this->db->join('buku','buku.id_buku = peminjaman.id_buku');
+        $this->db->where('id_peminjaman',$id);
+        return $this->db->get()->row_array();
+    }
+
+    public function delete_peminjaman_nana($id){
+        
+        $this->db->where('id_peminjaman',$id);
+        $this->db->delete('peminjaman');
+    }
+    
 }
 
 ?>

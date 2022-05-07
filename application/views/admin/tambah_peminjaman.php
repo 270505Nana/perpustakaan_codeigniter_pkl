@@ -175,7 +175,7 @@
                        </div>
 
 
-                       <input type="submit" name="simpan" value="SIMPAN DATA" class="btn btn-primary mb-5">
+                       <input type="submit" name="simpan" value="SIMPAN DATA" class="btn btn-primary mb-5" onclick="return confirm('Data Sudah Benar?')">
                        <a href="<?= base_url('login/peminjaman')?>" ><div class="btn btn-success mb-5">BATAL</div></a>
 
                    </form>

@@ -211,6 +211,24 @@ class Login extends CI_Controller{
         redirect('login/peminjaman');
     }
 
+    public function edit_peminjaman($id){
+
+        $data['peminjaman_nana'] = $this->My_Models->get_id_peminjaman($id);
+        $data_nana['anggota_nana'] = $this->My_Models->Ambil_Anggota_Nana();
+        $data_nana['buku_nana'] = $this->My_Models->Ambil_Buku();
+
+        $this->load->view('template/header');
+        $this->load->view('admin/edit_peminjaman',$data_nana);
+        $this->load->view('template/footer');
+    }
+
+    public function hapus_peminjaman($id){
+
+        $this->My_Models->delete_peminjaman_nana($id);
+        $this->session->set_flashdata('tambah','Data Berhasil di Hapus');
+        redirect('login/peminjaman');
+    }
+
    
 }
 ?>
