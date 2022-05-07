@@ -131,23 +131,54 @@
 
                 </nav>
                 <!-- End of Topbar -->
-
+<!-- _______________________________________________________________________________________________________________________________________________________________________________________________________________________________________ -->
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
 
                     <!-- Page Heading -->
-                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">SETTING</h1>
-                        <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
-                                class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
-                    </div>
+                    
+                        <h1 class="h3 ml-3 mb-0 text-gray-800">SETTING</h1>
+                        <hr>
+                        <br>
+                        <div class="container">
+                        <?php if($msg_nana = $this->session->flashdata('ubah')):?>
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="alert alert-dismissible alert-success">
+                                        <?= $msg_nana; ?>
+                                    </div>
+                                </div>
+                            </div>
+                        <?php endif; ?>
+                            <h5 class="ml-3">UBAH PASSWORD</h5>
+                            
+                            <div class="col-md-5">
+                                <form method="post" action="<?php echo base_url(). 'login/do_setting'?>">
+                                    <div class="form-group">
+                                        <!-- <label for="">Masukkan Password Baru</label> -->
+                                        <input type="password" name="pass" class="form-control"placeholder="Masukkan Passsword Baru">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <!-- <label for="">Masukkan Password Baru</label> -->
+                                        <input type="password" name="pass2" class="form-control"placeholder="Ulangi Passsword ">
+                                    </div>
+
+                                    <input type="submit" name="simpan" value="UBAH" class="btn btn-success">
+                                </form>
+                            </div>
+                        </div>
+                       
+                       
+                    
                     
                 </div>
                 <!-- /.container-fluid -->
 
             </div>
             <!-- End of Main Content -->
-
+<!-- ________________________________________________________________________________________________________________________________________________________________________________________________________________________________ -->
         </div>
         <!-- End of Content Wrapper -->
 

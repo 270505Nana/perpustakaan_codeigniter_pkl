@@ -26,8 +26,13 @@ class Login extends CI_Controller{
 
         // jika datanya ada akan di arahkan ke halaman admin
         if(count($login) > 0 ){
+            
+            redirect('login/admin');
+            $this->session->set_userdata(array(
+                'user' => $user
+            ));
            
-         redirect('login/admin');
+        
 
         }else{
             $this->session->set_flashdata('login','Periksa Username dan Password Anda');
@@ -37,41 +42,20 @@ class Login extends CI_Controller{
     }
 
     public function admin(){
+
+        $data['user'] = $this->session->userdata('user');
         $this->load->view('template/header');
-        $this->load->view('admin/admin');
+        $this->load->view('admin/admin', $data);
         $this->load->view('template/footer');
     }
+
+// __________________________________________________________________________________________________________________________________________
 
     public function buku(){
 
         $data_nana['buku_nana'] = $this->My_Models->Ambil_Buku();
         $this->load->view('template/header');
         $this->load->view('admin/buku', $data_nana);
-        $this->load->view('template/footer');
-    }
-
-    public function anggota(){
-
-        $data_nana['anggota_nana'] = $this->My_Models->Ambil_Anggota_Nana();
-        $this->load->view('template/header');
-        $this->load->view('admin/anggota', $data_nana);
-        $this->load->view('template/footer');
-
-    }
-
-    public function peminjaman(){
-
-        $data['peminjaman'] = $this->My_Models->get_data_peminjaman();
-
-        $this->load->view('template/header');
-        $this->load->view('admin/peminjaman',$data);
-        $this->load->view('template/footer');
-    }
-
-    public function setting(){
-
-        $this->load->view('template/header');
-        $this->load->view('admin/setting');
         $this->load->view('template/footer');
     }
 
@@ -142,6 +126,18 @@ class Login extends CI_Controller{
 
     }
 
+
+// __________________________________________________________________________________________________________________________________________
+
+    public function anggota(){
+
+        $data_nana['anggota_nana'] = $this->My_Models->Ambil_Anggota_Nana();
+        $this->load->view('template/header');
+        $this->load->view('admin/anggota', $data_nana);
+        $this->load->view('template/footer');
+
+    }
+
     public function tambah_anggota(){
 
         $this->load->view('template/header');
@@ -193,6 +189,16 @@ class Login extends CI_Controller{
         redirect('login/anggota');
     }
 
+// __________________________________________________________________________________________________________________________________________
+    public function peminjaman(){
+
+        $data['peminjaman'] = $this->My_Models->get_data_peminjaman();
+
+        $this->load->view('template/header');
+        $this->load->view('admin/peminjaman',$data);
+        $this->load->view('template/footer');
+    }
+
     public function tambah_peminjaman(){
 
         $data_nana['anggota_nana'] = $this->My_Models->Ambil_Anggota_Nana();
@@ -229,6 +235,41 @@ class Login extends CI_Controller{
         redirect('login/peminjaman');
     }
 
+
+// __________________________________________________________________________________________________________________________________________
+    public function setting(){
+
+        $this->load->view('template/header');
+        $this->load->view('admin/setting');
+        $this->load->view('template/footer');
+    }
+
+    public function do_setting(){
+        // do_setting ini dia ubah password admin
+
+        $pass  = $this->input->post('pass');
+        $pass2 = $this->input->post('pass2');
+
+        if($pass == $pass2){
+            // Ini dibaca, kalau input pass itu sama dengan pass2
+            // artinya berhasil dia akan mengakses ke models->database
+            //table admin->untuk mengganti password admin 
+            $this->My_Models->edit_setting_nana();
+            $this->session->set_flashdata('ubah','Password Berhasil di Ubah');
+            redirect('login/setting');
+        }else{
+            //Tapi kalau password  pertama dan password kedua beda
+            // Dia akan ada flashdata yang menampilkan warning
+            $this->session->set_flashdata('ubah','Password Gagal di Ubah');
+            redirect('login/setting');
+        }
+
+    }
+
+ 
+ 
+
+ 
    
 }
 ?>

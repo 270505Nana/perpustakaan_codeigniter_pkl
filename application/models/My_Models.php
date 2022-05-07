@@ -151,6 +151,18 @@ class My_Models extends CI_Model{
         $this->db->where('id_peminjaman',$id);
         $this->db->delete('peminjaman');
     }
+    public function edit_setting_nana(){
+        $data = [
+            'password' => $this->input->post('pass')
+            // artinya column password kita isi dengan input pass
+        ];
+
+        $this->db->where('username',$this->session->userdata('user'));
+        //artinya usernamenya harus sama dengan session dimana kita masuk
+        //example : aku masuk pakai usernama nana, maka data yang diubah akan disesuaikan dengan username yang aku masukkan di session userdata
+        //Ketika sama baru nanti aku ubah
+        $this->db->update('admin',$data);
+    }
     
 }
 
