@@ -165,7 +165,7 @@
                                         <input type="password" name="pass2" class="form-control"placeholder="Ulangi Passsword ">
                                     </div>
 
-                                    <input type="submit" name="simpan" value="UBAH" class="btn btn-success">
+                                    <input type="submit" name="simpan" value="UBAH" class="btn btn-success" onclick="return confirm('Yakin Ubah Password Anda?')">
                                 </form>
                             </div>
                         </div>

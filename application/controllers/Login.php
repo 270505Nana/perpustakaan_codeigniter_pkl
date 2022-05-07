@@ -41,9 +41,17 @@ class Login extends CI_Controller{
 
     }
 
+    public function logout(){
+        $this->session->unset_userdata('user');
+        redirect('login/index');
+    }
+
     public function admin(){
 
         $data['user'] = $this->session->userdata('user');
+        $data['total_buku'] = $this->My_Models->total_buku();
+        $data['total_peminjaman'] = $this->My_Models->total_peminjaman();
+        $data['total_anggota'] = $this->My_Models->total_anggota();
         $this->load->view('template/header');
         $this->load->view('admin/admin', $data);
         $this->load->view('template/footer');
@@ -265,6 +273,8 @@ class Login extends CI_Controller{
         }
 
     }
+
+ 
 
  
  

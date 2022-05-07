@@ -164,6 +164,22 @@ class My_Models extends CI_Model{
         $this->db->update('admin',$data);
     }
     
+    public function total_buku(){
+
+        return $this->db->get('buku')->num_rows();
+    }
+
+    public function total_peminjaman(){
+
+        // $this->db->where('status', 'Baru');
+        return $this->db->get('peminjaman')->num_rows();
+    }
+
+    public function total_anggota(){
+
+        return $this->db->get('anggota')->num_rows();
+    }
+    
 }
 
 ?>
